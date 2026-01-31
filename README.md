@@ -24,7 +24,7 @@ huggingface视频教程地址：https://youtu.be/XERxg9AODeo
   | NEZHA_KEY    | 否 |        | 哪吒v1的NZ_CLIENT_SECRET或v0的agent端口 |
   | NAME         | 否 |        | 节点名称前缀，例如：Glitch |
   | DOMAIN       | 是 |        | 项目分配的域名或已反代的域名，不包括https://前缀  |
-  | SUB_PATH     | 否 |  sub   | 订阅路径   |
+  | SUB_PATH     | 否 |  yyds   | 订阅路径   |
   | AUTO_ACCESS  | 否 |  false | 是否开启自动访问保活,false为关闭,true为开启,需同时填写DOMAIN变量 |
 
 * 域名/${SUB_APTH}查看节点信息，非标端口，域名:端口/${SUB_APTH}  SUB_APTH为自行设置的订阅token，未设置默认为sub
