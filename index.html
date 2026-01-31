@@ -1,151 +1,141 @@
+export default {
+  async fetch(request, env, ctx) {
+    const html = `
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>周树人</title> <style>
+    <title>周树人</title>
+    <style>
         :root {
-            --bg: #1a1a1a;
-            --paper: #c0b7a4;
-            --red: #5e0000;
-            --ink: #000000;
+            --bg-color: #0d0d0d;
+            --text-color: #9a9a9a;
+            --accent-color: #4a0000;
+            --border-color: #333;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--paper);
-            font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        .main-frame {
-            width: 90%;
-            max-width: 800px;
-            border: 1px solid var(--paper);
-            padding: 40px;
+        .container {
+            width: 85%;
+            max-width: 500px;
+            padding: 50px;
+            border: 1px solid var(--border-color);
+            background: rgba(20, 20, 20, 0.8);
             position: relative;
-            background: rgba(255, 255, 255, 0.02);
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
         }
 
-        .header-section {
-            text-align: center;
-            border-bottom: 2px solid var(--red);
-            padding-bottom: 30px;
-            margin-bottom: 40px;
-        }
-
-        /* 鲁迅图片样式 - 严格控制尺寸 */
+        /* 核心肖像：使用 1930 年经典照片 */
         .portrait {
-            width: 120px;
-            height: 160px;
-            filter: grayscale(100%) sepia(20%) contrast(1.2);
-            border: 1px solid var(--paper);
-            margin-bottom: 20px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .portrait:hover {
-            transform: scale(1.05);
-            filter: grayscale(0%);
+            display: block;
+            width: 180px;
+            margin: 0 auto 40px auto;
+            filter: grayscale(100%) contrast(1.1) brightness(0.9);
+            border: 1px solid var(--text-color);
+            padding: 8px;
+            background: #000;
         }
 
         h1 {
-            font-size: 1.8rem;
-            letter-spacing: 8px;
-            color: var(--paper);
-            font-weight: 300;
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 12px;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-weight: 200;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 20px;
         }
 
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            line-height: 2;
+        .philosophy-body {
+            line-height: 2.2;
+            font-size: 0.95rem;
+            text-align: justify;
         }
 
-        .thought-card {
-            padding: 20px;
-            border-left: 1px solid var(--red);
-            background: rgba(0,0,0,0.2);
+        .thought-item {
+            margin-bottom: 30px;
+            position: relative;
         }
 
-        .thought-card h3 {
-            color: var(--red);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .thought-item::before {
+            content: "·";
+            color: var(--accent-color);
+            position: absolute;
+            left: -15px;
+            font-weight: bold;
         }
 
-        .footer-quote {
+        .footer {
             margin-top: 50px;
             text-align: right;
-            font-style: italic;
-            color: #888;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            color: #444;
+            letter-spacing: 2px;
         }
 
-        /* 模拟印章效果 */
-        .seal {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--red);
-            color: var(--red);
-            display: inline-block;
-            text-align: center;
-            line-height: 20px;
-            font-size: 12px;
-            padding: 2px;
+        /* 模拟暗红色印章 */
+        .stamp {
             position: absolute;
             bottom: 40px;
             right: 40px;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 600px) {
-            .philosophy-grid { grid-template-columns: 1fr; }
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.6;
+            transform: rotate(-15deg);
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/LuXun1930.jpg" class="portrait" alt="周树人">
+        
+        <h1>绝望之虚妄</h1>
 
-    <div class="main-frame">
-        <div class="header-section">
-            
-            <img src="https://bkimg.cdn.bcebos.com/pic/eaf81a4c510fd9f93902342f2b2dd42a2934a413" class="portrait" alt="周树人">
-            <h1>绝望之为虚妄，正与希望相同</h1>
-        </div>
-
-        <div class="philosophy-grid">
-            <div class="thought-card">
-                <h3>其一：时间之辩</h3>
-                <p>生命是以时间为限度的，浪费别人的时间，其实无异于谋财害命。但若这生命本身已是一片荒原，那谋杀荒原，又算是什么呢？</p>
+        <div class="philosophy-body">
+            <div class="thought-item">
+                当我沉默着的时候，我觉得充实；我将开口，同时感到空虚。
             </div>
-            <div class="thought-card">
-                <h3>其二：影的告别</h3>
-                <p>我只合在黑暗中沉没。如果你追寻光，光便会灼伤你。如果你追寻影，影便会吞噬你。最后你发现，你就是那道被火烧残的影。</p>
+            <div class="thought-item">
+                于浩歌狂热之际中寒；于天上看见深渊。于一切眼中看见无所有；于无所希望中得救。
             </div>
-            <div class="thought-card">
-                <h3>其三：觉醒之苦</h3>
-                <p>假如一间铁屋子，万难破毁，里面有许多熟睡的人们。你是大嚷一声，惊醒那几个稍微清醒的人，让他们承受无可挽救的临终之苦；还是让他们在昏睡中死去？</p>
-            </div>
-            <div class="thought-card">
-                <h3>其四：路</h3>
-                <p>其实地上本没有路，走的人多了，也便成了路。可路通向哪里？没有人问。大家只是走着，因为别人也在走。</p>
+            <div class="thought-item">
+                我想，哲学并非为了让人看透世界，而是让人在看透之后，依然能忍受这种荒诞的清醒。
             </div>
         </div>
 
-        <div class="footer-quote">
-            —— 并非每一个清醒者都能找到出口。
+        <div class="footer">
+            一九三〇年 · 上海
         </div>
 
-        <div class="seal">树人<br>之印</div>
+        <div class="stamp">
+            树人<br>印
+        </div>
     </div>
-
 </body>
 </html>
+    `;
+
+    return new Response(html, {
+      headers: { "content-type": "text/html;charset=UTF-8" },
+    });
+  },
+};
