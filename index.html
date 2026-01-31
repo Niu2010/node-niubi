@@ -3,183 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>呐喊与环保 - 鲁迅主题</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Noto Serif SC", serif;
-        }
-
+    <title>周树人</title> <style>
         :root {
-            --paper-bg: #d2cbb8; /* 故纸堆的颜色 */
-            --ink-black: #2b2b2b;
-            --blood-red: #8b0000;
-            --gray-text: #4a4a4a;
+            --bg: #1a1a1a;
+            --paper: #c0b7a4;
+            --red: #5e0000;
+            --ink: #000000;
         }
 
         body {
-            background-color: var(--paper-bg);
-            color: var(--ink-black);
-            line-height: 1.8;
-            background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'); /* 增加质感 */
+            background-color: var(--bg);
+            color: var(--paper);
+            font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        header {
-            background: var(--ink-black);
-            color: var(--paper-bg);
-            padding: 1.5rem 0;
-            border-bottom: 4px solid var(--blood-red);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .main-frame {
+            width: 90%;
+            max-width: 800px;
+            border: 1px solid var(--paper);
+            padding: 40px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        .container {
-            width: 85%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: 5px;
+        .header-section {
             text-align: center;
+            border-bottom: 2px solid var(--red);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .hero {
-            padding: 4rem 0;
-            text-align: center;
-            border-bottom: 1px dashed var(--ink-black);
-        }
-
-        /* 鲁迅图片样式 - 限制尺寸 */
-        .luxun-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--ink-black);
-            margin-bottom: 1rem;
-            filter: grayscale(100%) contrast(120%);
+        /* 鲁迅图片样式 - 严格控制尺寸 */
+        .portrait {
+            width: 120px;
+            height: 160px;
+            filter: grayscale(100%) sepia(20%) contrast(1.2);
+            border: 1px solid var(--paper);
+            margin-bottom: 20px;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin: 1rem 0;
+        .portrait:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
-        .quote-box {
-            background: rgba(0,0,0,0.05);
-            padding: 2rem;
-            border-left: 5px solid var(--blood-red);
-            margin: 2rem 0;
-            font-style: italic;
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 8px;
+            color: var(--paper);
+            font-weight: 300;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--blood-red);
-            color: white;
-            padding: 10px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid var(--ink-black);
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--ink-black);
-            color: var(--paper-bg);
-        }
-
-        section {
-            padding: 3rem 0;
-        }
-
-        h2 {
-            border-bottom: 2px solid var(--ink-black);
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-container {
+        .philosophy-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 30px;
+            line-height: 2;
         }
 
-        .card {
-            border: 1px solid var(--ink-black);
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.3);
+        .thought-card {
+            padding: 20px;
+            border-left: 1px solid var(--red);
+            background: rgba(0,0,0,0.2);
         }
 
-        footer {
-            text-align: center;
-            padding: 3rem;
+        .thought-card h3 {
+            color: var(--red);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-quote {
+            margin-top: 50px;
+            text-align: right;
+            font-style: italic;
+            color: #888;
             font-size: 0.9rem;
-            color: var(--gray-text);
         }
 
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            .card-container { grid-template-columns: 1fr; }
+        /* 模拟印章效果 */
+        .seal {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--red);
+            color: var(--red);
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            padding: 2px;
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .philosophy-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo">呐喊 · 环保</div>
+    <div class="main-frame">
+        <div class="header-section">
+            
+            <img src="https://bkimg.cdn.bcebos.com/pic/eaf81a4c510fd9f93902342f2b2dd42a2934a413" class="portrait" alt="周树人">
+            <h1>绝望之为虚妄，正与希望相同</h1>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <img src="https://bkimg.cdn.bcebos.com/pic/eaf81a4c510fd9f93902342f2b2dd42a2934a413" alt="鲁迅" class="luxun-img">
-            <h1>地球本没有垃圾，扔的人多了...</h1>
-            <p>我也要求环保，但我并不是为了救地球，我是看不惯有些人浪费得像在吃人。</p>
-            <div class="quote-box">
-                “浪费自己的时间等于慢性自杀，浪费地球的资源等于谋财害命。” —— 我没说过这话，但我觉得有道理。
+        <div class="philosophy-grid">
+            <div class="thought-card">
+                <h3>其一：时间之辩</h3>
+                <p>生命是以时间为限度的，浪费别人的时间，其实无异于谋财害命。但若这生命本身已是一片荒原，那谋杀荒原，又算是什么呢？</p>
             </div>
-            <a href="#" class="btn">这就去捡垃圾</a>
-        </div>
-    </section>
-
-    <section id="content">
-        <div class="container">
-            <h2>我看当下的现状</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>关于塑料袋</h3>
-                    <p>满地的塑料袋在风里飞，活像一个个苍白的灵魂。人们用它盛放欲望，用完便弃之如敝屣。这大概就是所谓的“文明”罢。</p>
-                </div>
-                <div class="card">
-                    <h3>关于空调</h3>
-                    <p>屋里的人开着十六度盖棉被，屋外的北极熊在碎冰上跳舞。人类的悲欢并不相通，我只觉得热得荒谬。</p>
-                </div>
+            <div class="thought-card">
+                <h3>其二：影的告别</h3>
+                <p>我只合在黑暗中沉没。如果你追寻光，光便会灼伤你。如果你追寻影，影便会吞噬你。最后你发现，你就是那道被火烧残的影。</p>
+            </div>
+            <div class="thought-card">
+                <h3>其三：觉醒之苦</h3>
+                <p>假如一间铁屋子，万难破毁，里面有许多熟睡的人们。你是大嚷一声，惊醒那几个稍微清醒的人，让他们承受无可挽救的临终之苦；还是让他们在昏睡中死去？</p>
+            </div>
+            <div class="thought-card">
+                <h3>其四：路</h3>
+                <p>其实地上本没有路，走的人多了，也便成了路。可路通向哪里？没有人问。大家只是走着，因为别人也在走。</p>
             </div>
         </div>
-    </section>
 
-    <section class="hero">
-        <div class="container">
-            <img src="https://img95.699pic.com/element/40149/0974.png_860.png" alt="鲁迅侧影" class="luxun-img">
-            <h2>救救孩子，救救地球</h2>
-            <p>即便是不满，也得生存。愿中国青年都摆脱冷气（或者少开点冷气），只是向上走，不必听自暴自弃者流的话。</p>
+        <div class="footer-quote">
+            —— 并非每一个清醒者都能找到出口。
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 1926-2026 呐喊工作室 · 翻版必究（除非你真的在种树）</p>
-        </div>
-    </footer>
+        <div class="seal">树人<br>之印</div>
+    </div>
 
 </body>
 </html>
