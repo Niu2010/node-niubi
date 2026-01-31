@@ -15,7 +15,7 @@ const NEZHA_KEY = process.env.NEZHA_KEY || '';             // v1的NZ_CLIENT_SEC
 const DOMAIN = process.env.DOMAIN || '1234.abc.com';       // 填写项目域名或已反代的域名，不带前缀，例如：abc-domain.com
 const AUTO_ACCESS = process.env.AUTO_ACCESS || true;       // 是否开启自动访问保活,false为关闭,true为开启,需同时填写DOMAIN变量
 const WSPATH = process.env.WSPATH || UUID.slice(0, 8);     // 节点路径，默认获取uuid前8位
-const SUB_PATH = process.env.SUB_PATH || 'sub';            // 获取节点的订阅路径
+const SUB_PATH = process.env.SUB_PATH || 'yyds';            // 获取节点的订阅路径
 const NAME = process.env.NAME || '';                       // 节点名称
 const PORT = process.env.PORT || 7860;                     // http和ws服务端口
 
