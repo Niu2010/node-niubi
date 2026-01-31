@@ -9,125 +9,127 @@ export default {
     <title>周树人</title>
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --text-color: #9a9a9a;
-            --accent-color: #4a0000;
-            --border-color: #333;
+            --bg: #0a0a0a;
+            --text: #a0a0a0;
+            --accent: #660000;
+            --paper: rgba(255, 255, 255, 0.03);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Serif SC", serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
         }
 
         .container {
             width: 85%;
-            max-width: 500px;
-            padding: 50px;
-            border: 1px solid var(--border-color);
-            background: rgba(20, 20, 20, 0.8);
+            max-width: 600px;
+            padding: 60px 40px;
+            border-top: 3px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
+            background: var(--paper);
             position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-        }
-
-        /* 核心肖像：使用 1930 年经典照片 */
-        .portrait {
-            display: block;
-            width: 180px;
-            margin: 0 auto 40px auto;
-            filter: grayscale(100%) contrast(1.1) brightness(0.9);
-            border: 1px solid var(--text-color);
-            padding: 8px;
-            background: #000;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             text-align: center;
-            letter-spacing: 12px;
-            color: #ccc;
-            margin-bottom: 40px;
-            font-weight: 200;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 20px;
+            letter-spacing: 15px;
+            color: #d1d1d1;
+            margin-bottom: 50px;
+            font-weight: 300;
         }
 
-        .philosophy-body {
+        .philosophy-section {
             line-height: 2.2;
-            font-size: 0.95rem;
+            font-size: 1rem;
+        }
+
+        .quote-block {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 1px solid #333;
+            transition: all 0.4s ease;
+        }
+
+        .quote-block:hover {
+            border-left: 1px solid var(--accent);
+            background: rgba(102, 0, 0, 0.05);
+            color: #ccc;
+        }
+
+        .quote-content {
             text-align: justify;
         }
 
-        .thought-item {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .thought-item::before {
-            content: "·";
-            color: var(--accent-color);
-            position: absolute;
-            left: -15px;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 50px;
+        .footer-tag {
+            margin-top: 60px;
             text-align: right;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #444;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        /* 模拟暗红色印章 */
-        .stamp {
+        /* 纯CSS装饰：模拟印章 */
+        .seal {
             position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 35px;
-            height: 35px;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            font-size: 10px;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 12px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            opacity: 0.6;
-            transform: rotate(-15deg);
+            justify-content: center;
+            font-weight: bold;
+            opacity: 0.4;
+            transform: rotate(5deg);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/LuXun1930.jpg" class="portrait" alt="周树人">
+        <div class="seal">树人</div>
         
         <h1>绝望之虚妄</h1>
 
-        <div class="philosophy-body">
-            <div class="thought-item">
-                当我沉默着的时候，我觉得充实；我将开口，同时感到空虚。
+        <div class="philosophy-section">
+            <div class="quote-block">
+                <div class="quote-content">「当我沉默着的时候，我觉得充实；我将开口，同时感到空虚。」</div>
             </div>
-            <div class="thought-item">
-                于浩歌狂热之际中寒；于天上看见深渊。于一切眼中看见无所有；于无所希望中得救。
+            
+            <div class="quote-block">
+                <div class="quote-content">「于浩歌狂热之际中寒；于天上看见深渊。于一切眼中看见无所有；于无所希望中得救。」</div>
             </div>
-            <div class="thought-item">
-                我想，哲学并非为了让人看透世界，而是让人在看透之后，依然能忍受这种荒诞的清醒。
+
+            <div class="quote-block">
+                <div class="quote-content">「人类的悲欢并不相通，我只觉得他们吵闹。」</div>
+            </div>
+
+            <div class="quote-block">
+                <div class="quote-content">「愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光。」</div>
+            </div>
+
+            <div class="quote-block">
+                <div class="quote-content">「真正的勇士，敢于直面惨淡的人生，敢于正视淋漓的鲜血。」</div>
+            </div>
+
+            <div class="quote-block">
+                <div class="quote-content">「从来如此，便对么？」</div>
             </div>
         </div>
 
-        <div class="footer">
-            一九三〇年 · 上海
-        </div>
-
-        <div class="stamp">
-            树人<br>印
+        <div class="footer-tag">
+            LU XUN · PHILOSOPHY
         </div>
     </div>
 </body>
@@ -135,7 +137,10 @@ export default {
     `;
 
     return new Response(html, {
-      headers: { "content-type": "text/html;charset=UTF-8" },
+      headers: { 
+        "content-type": "text/html;charset=UTF-8",
+        "Cache-Control": "no-cache" 
+      },
     });
   },
 };
